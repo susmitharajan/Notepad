@@ -10,18 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
- * Created by susmitharajan on 16/03/18.
+ * Created by susmitharajan on 17/03/18.
  */
 
-public class editActivity extends Activity {
-
-    static int count = 0;
+public class NewActivity extends Activity {
     SharedPreferences sf;
     EditText name;
     public static final String preferences = "pref1";
@@ -30,29 +26,27 @@ public class editActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit);
+        setContentView(R.layout.newactivity);
+        int num = getIntent().getIntExtra("key", 0);
+        saveIt = String.valueOf(num);
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c);
-        TextView date = (TextView)findViewById(R.id.date);
+        TextView date = (TextView) findViewById(R.id.date);
         date.setText(formattedDate);
         name = (EditText) findViewById(R.id.edit_story);
         sf = getSharedPreferences(preferences, Context.MODE_PRIVATE);
-
-        int num  = getIntent().getIntExtra("key",0);
-        saveIt = String.valueOf(num);
-
-        if (sf.contains(saveIt)) {
-            name.setText(sf.getString(saveIt, ""));
-        }
     }
+
     @Override
     public void onBackPressed() {
         String store = name.getText().toString();
-        SharedPreferences.Editor editor = sf.edit();
-        editor.putString(saveIt, store);
-        editor.commit();
+        if(!store.isEmpty()){
+            SharedPreferences.Editor editor = sf.edit();
+            editor.putString(saveIt, store);
+            editor.commit();
+        }
         finish();
     }
 }

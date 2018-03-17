@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.susmitharajan.notepadplus.NewActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:text="Title:"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/title"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:hint="No Title"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_alignParentRight="true"
+                android:id="@+id/date"
+                />
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <com.example.susmitharajan.notepadplus.LinedEditText
+        android:id="@+id/edit_story"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:minLines="10"
+        android:singleLine="false"
+        android:imeOptions="actionNone"
+        android:gravity="top"
+        />
+
+</LinearLayout>

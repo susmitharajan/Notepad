@@ -7,13 +7,20 @@
     tools:context="com.example.susmitharajan.notepadplus.MainActivity">
 
 
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:drawSelectorOnTop="false" />
+
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_margin="16dp"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@drawable/ic_add_black_48dp" />
 
 
 
